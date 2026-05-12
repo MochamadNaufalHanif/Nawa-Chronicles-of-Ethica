@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nawa Chronicles of Ethica</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="app" id="app">
+    <section class="screen home-screen is-active" id="homeScreen" aria-labelledby="gameTitle">
+      <div class="home-world" aria-hidden="true">
+        <div class="aurora"></div>
+        <div class="floating-island island-left"></div>
+        <div class="floating-island island-right"></div>
+        <div class="prism-tower">
+          <span class="tower-spire"></span>
+          <span class="tower-core"></span>
+          <span class="tower-base"></span>
+        </div>
+        <div class="nara-silhouette"></div>
+        <div class="light-orbit orbit-a"></div>
+        <div class="light-orbit orbit-b"></div>
+        <div class="mist mist-a"></div>
+        <div class="mist mist-b"></div>
+      </div>
+      <div class="home-copy">
+        <p class="kicker">Game Edukasi Integritas</p>
+        <h1 id="gameTitle">Nawa Chronicles of Ethica</h1>
+        <p class="subtitle">Pulihkan 9 kristal integritas, kalahkan 3 penjaga wilayah, lalu buka cahaya Prism Tower.</p>
+        <div class="home-actions">
+          <button class="primary-button" id="startButton">
+            <span>Start Journey</span>
+          </button>
+          <button class="ghost-button" id="settingsButton" aria-haspopup="dialog" aria-controls="settingsModal">
+            <span>Settings</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <div class="modal-overlay" id="settingsModal" role="dialog" aria-modal="true" aria-labelledby="settingsTitle" aria-hidden="true">
+      <div class="settings-panel">
+        <div class="settings-head">
+          <div>
+            <p class="kicker">Settings</p>
+            <h2 id="settingsTitle">Profil Nara</h2>
+          </div>
+          <button class="icon-button" id="closeSettingsButton" aria-label="Tutup settings">x</button>
+        </div>
+        <fieldset class="settings-group">
+          <legend>Jenis Kelamin Karakter</legend>
+          <div class="gender-options" role="radiogroup" aria-label="Jenis kelamin karakter utama">
+            <label class="gender-card">
+              <input type="radio" name="characterGender" value="female" checked>
+              <span>
+                <strong>Perempuan</strong>
+                <small>Avatar Nara dengan siluet lebih ramping.</small>
+              </span>
+            </label>
+            <label class="gender-card">
+              <input type="radio" name="characterGender" value="male">
+              <span>
+                <strong>Laki-laki</strong>
+                <small>Avatar Nara dengan siluet lebih tegap.</small>
+              </span>
+            </label>
+          </div>
+        </fieldset>
+      </div>
+    </div>
+
+    <section class="screen map-screen" id="mapScreen" aria-label="Peta Chapter Ethica">
+      <header class="topbar">
+        <div>
+          <p class="kicker">Peta Ethica</p>
+          <h2 id="mapTitle">Pilih Wilayah</h2>
+        </div>
+        <div class="hud-cluster">
+          <button class="ghost-button" id="homeButton">Home</button>
+          <div class="hud-pill">
+            <span>Integrity</span>
+            <strong id="integrityLabel">100%</strong>
+          </div>
+          <div class="meter">
+            <span id="integrityFill"></span>
+          </div>
+          <button class="icon-button" id="soundButton" aria-label="Toggle sound">♪</button>
+        </div>
+      </header>
+
+      <div class="map-layout">
+        <div class="map-stage" id="mapStage">
+          <img src="assets/maps-game.png" alt="Peta tiga wilayah Ethica: Baswara Wilds, Civitas Equi, dan Aeterna Peak">
+          <div class="map-vignette"></div>
+          <div class="chapter-node node-equi" data-region="equi">
+            <span>1</span>
+            <strong>Civitas Equi</strong>
+          </div>
+          <div class="chapter-node node-baswara" data-region="baswara">
+            <span>2</span>
+            <strong>Baswara Wilds</strong>
+          </div>
+          <div class="chapter-node node-aeterna" data-region="aeterna">
+            <span>3</span>
+            <strong>Aeterna Peak</strong>
+          </div>
+          <div class="chapter-node node-prism" data-region="prism">
+            <span>★</span>
+            <strong>Prism Tower</strong>
+          </div>
+        </div>
+
+        <aside class="journal">
+          <div class="journal-head">
+            <p class="kicker">Hall of Light</p>
+            <h3 id="regionName">Civitas Equi</h3>
+          </div>
+          <p id="regionDesc" class="region-desc"></p>
+          <div class="crystal-grid" id="crystalGrid"></div>
+          <div class="quest-list" id="questList"></div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="screen challenge-screen" id="challengeScreen" aria-label="Tantangan">
+      <div class="scene-backdrop" id="sceneBackdrop">
+        <div class="scene-glow"></div>
+        <div class="particle-field" id="particleField"></div>
+      </div>
+
+      <header class="challenge-hud">
+        <button class="ghost-button" id="backToMapButton">Map</button>
+        <div class="challenge-title">
+          <p class="kicker" id="challengeRegion">Civitas Equi</p>
+          <h2 id="challengeName">Grid of Care</h2>
+        </div>
+        <div class="challenge-integrity">
+          <div class="hud-pill">
+            <span>Integrity</span>
+            <strong id="challengeIntegrityLabel">100%</strong>
+          </div>
+          <div class="meter">
+            <span id="challengeIntegrityFill"></span>
+          </div>
+        </div>
+      </header>
+
+      <div class="arena" id="arena">
+        <div class="boss-presence" id="bossPresence"></div>
+        <div class="prism-avatar" id="prismAvatar">
+          <span class="avatar-head"></span>
+          <span class="avatar-cloak"></span>
+          <span class="avatar-crystal"></span>
+        </div>
+        <div class="action-panel" id="actionPanel"></div>
+      </div>
+
+      <div class="dialogue" id="dialogueBox">
+        <div class="speaker">
+          <span id="speakerName">Aegis Verita</span>
+          <small id="speakerTone">lembut</small>
+        </div>
+        <p id="dialogueText"></p>
+      </div>
+    </section>
+
+    <section class="screen ending-screen" id="endingScreen" aria-labelledby="endingTitle">
+      <div class="ending-card">
+        <p class="kicker" id="endingBadge">Ending</p>
+        <h2 id="endingTitle">The Golden Harmony</h2>
+        <p id="endingText"></p>
+        <div class="ending-stats">
+          <span>Kristal</span><strong id="finalCrystals">0/9</strong>
+          <span>Boss</span><strong id="finalBosses">0/3</strong>
+          <span>Integrity</span><strong id="finalIntegrity">100%</strong>
+        </div>
+        <div class="ending-actions">
+          <button class="ghost-button" id="endingMapButton">Kembali ke Map</button>
+          <button class="primary-button" id="restartButton">Main Ulang</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
