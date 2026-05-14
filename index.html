@@ -4890,9 +4890,6 @@
                 if (resultContent && !document.getElementById('resultStats')) {
                     document.getElementById('resultMessage').insertAdjacentHTML('afterend', '<div class="result-stats" id="resultStats"></div><div class="shard-quote" id="resultQuote"></div>');
                 }
-                if (!document.getElementById('essencePill')) {
-                    document.body.insertAdjacentHTML('beforeend', '<div class="essence-pill" id="essencePill" style="display:none;"></div>');
-                }
                 if (!document.getElementById('dialogSkipBtn')) {
                     document.body.insertAdjacentHTML('beforeend', '<button class="dialog-skip-btn" id="dialogSkipBtn" type="button" onclick="DialogSystem.startSkipMode()">Skip</button>');
                 }
